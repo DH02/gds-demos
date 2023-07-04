@@ -1,0 +1,31 @@
+@include govuk-media-query($from: desktop) {
+  main.govuk-main-wrapper {
+    min-height: 500px;
+  }
+}
+
+h1 {
+  abbr[title] {
+    text-decoration: none;
+  }
+}
+
+.demos-no-wrap {
+  white-space: nowrap;
+}
+
+.demos-brand-border-top {
+  border-top: 2px; 
+  border-right: 0; 
+  border-bottom: 0; 
+  border-left: 0; 
+  border-style: solid; 
+  border-color: $govuk-brand-colour; 
+  padding-top: govuk-spacing(3); 
+  padding-left: govuk-spacing(0);
+}
+
+//for the purposes of these demonstration prototypes only ...
+.govuk-footer__inline-list li:first-child {
+  display: none;
+}

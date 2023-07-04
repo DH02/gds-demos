@@ -1,0 +1,86 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Select a destination" %}
+
+{% block beforeContent %}
+    {{ govukBackLink({
+        text: "Back",
+        href: "index"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+      
+    
+    <form id="myForm" action="/space-proto/what-is-your-name" method="post" novalidate>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="destination-hint"> 
+          
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Select a destination  
+            </h1>
+          </legend>
+  
+          <div id="destination-hint" class="govuk-hint govuk-!-margin-bottom-7">
+            Repellat est oditam autem cumque nihil magni reprehenderit eaque quibusdam sint ullam aperiam, harum rerum rem, molestias officiis.
+          </div>
+  
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="destination-1" name="destination" type="radio" value="The Moon" data-value="{{ data['destination'] }}">
+              <label class="govuk-label govuk-radios__label" for="destination-1">
+                The Moon
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="destination-2" name="destination" type="radio" value="Mars" data-value="{{ data['destination'] }}">
+              <label class="govuk-label govuk-radios__label" for="destination-2">
+                Mars
+              </label>
+            </div>
+  
+          </div>
+        </fieldset>
+      </div>
+  
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+{% block pageScripts %}
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      document.getElementsByName("destination").forEach(function(radio) {
+        let datavalue = radio.getAttribute("data-value");
+        let keyvalue = radio.value;
+
+        if(datavalue == keyvalue){
+          radio.setAttribute("checked", "true");
+        }
+      });
+
+      var urlParams = new URLSearchParams(window.location.search);
+      var pg = urlParams.get('from'); 
+
+      if (pg == 'check'){
+        document.getElementById("myForm").action = "/space-proto/check-your-answers"; 
+      }
+
+    
+    });
+  </script>
+{% endblock %}
+
+{% endblock %}

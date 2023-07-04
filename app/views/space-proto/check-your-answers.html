@@ -1,0 +1,100 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Check your answers" %} 
+
+{% block beforeContent %}
+    {{ govukBackLink({
+        text: "Back",
+        href: "what-is-your-address"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-8">
+      Check your answers before sending your registration
+    </h1>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    <h2 class="govuk-heading-m">
+      Your registration details
+    </h2>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Destination
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['destination'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link govuk-link--no-visited-state" href="/space-proto/select-a-destination?from=check">
+            Change<span class="govuk-visually-hidden"> destination</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Full name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['full-name'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link govuk-link--no-visited-state" href="/space-proto/what-is-your-name?from=check">
+            Change<span class="govuk-visually-hidden"> full name</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Address
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <span class="govuk-!-display-block">{{ data['address-line-1'] }}<span class="govuk-visually-hidden"><br> </span></span>
+          <span class="govuk-!-display-block">{{ data['address-line-2'] }}<span class="govuk-visually-hidden"><br> </span></span>
+          <span class="govuk-!-display-block">{{ data['address-town'] }}<span class="govuk-visually-hidden"><br> </span></span>
+          <span class="govuk-!-display-block">{{ data['address-county'] }}<span class="govuk-visually-hidden"><br> </span></span>
+          <span class="govuk-!-display-block">{{ data['address-postcode'] }}</span>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link govuk-link--no-visited-state" href="/space-proto/what-is-your-address">
+            Change<span class="govuk-visually-hidden"> address</span>
+          </a>
+        </dd>
+      </div>
+    </dl>
+
+
+    <h2 class="govuk-heading-m">
+      Now send your registration
+    </h2>
+    
+    <p class="govuk-body">
+      By submitting this registration you are confirming that, to the best of your knowledge, the details you are providing are correct.
+    </p>
+    
+    <form action="/space-proto/confirmation" method="post" novalidate>
+
+      <input type="hidden" name="answers-checked" value="true">
+
+      <button class="govuk-button" data-module="govuk-button">
+        Accept and send
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}

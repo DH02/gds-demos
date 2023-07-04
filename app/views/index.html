@@ -7,17 +7,36 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
+
 
     <h1 class="govuk-heading-xl">
-      {{ serviceName }} 
+      <abbr title="Government Design System">GDS</abbr> demos
     </h1>
 
-    <p class="govukuk-body">
-      This is my test text - Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere, ducimus accusamus saepe placeat sint numquam? Voluptate alias blanditiis omnis facere, porro iste perspiciatis natus cum veniam ullam enim itaque pariatur. New edit v2.
+    <p class="govuk-body govuk-!-margin-bottom-8">
+      The 'Space travel service' prototype has been created. A new repository on github was created (gds-demos). 'Branching' is demonstrated via the use of form validation error pages. (Submit forms without values or selections).
     </p>
+
+    <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-8">
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="space-proto/" rel="noreferrer noopener" target="_blank">View the 'Space travel service' prototype (opens in new tab)</a>
+      </li>
+      <li>
+        <a class="govuk-link govuk-link--no-visited-state" href="https://github.com/DH02/gds-demos" rel="noreferrer noopener" target="_blank"><span class="demos-no-wrap"><abbr>gds</abbr>-demos</span> github branch (opens in new tab)</a>
+      </li>
+    </ul>
+
+    <p class="govuk-body govuk-!-margin-bottom-8">
+      Use the 'Clear data' link in the page footers to reset information passed between pages and forms.
+    </p>    
 
   </div>
 </div>
+
+    <!--
+    {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
+
+    /manage-prototype/templates
+    -->
 
 {% endblock %}

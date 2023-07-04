@@ -1,0 +1,80 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Error: Select a destination" %}
+
+{% block beforeContent %}
+    {{ govukBackLink({
+        text: "Back",
+        href: "index"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-error-summary" data-module="govuk-error-summary">
+  <div role="alert">
+    <h2 class="govuk-error-summary__title">
+      There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        <li>
+          <a href="#destination-1">Select a destination</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+    <form action="/space-proto/what-is-your-name" method="post" novalidate>
+
+      <div class="govuk-form-group govuk-form-group--error">
+        <fieldset class="govuk-fieldset" aria-describedby="destination-hint destination-error">
+          
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Select a destination
+            </h1>
+          </legend>
+  
+          <div id="destination-hint" class="govuk-hint govuk-!-margin-bottom-7">
+            Repellat est oditam autem cumque nihil magni reprehenderit eaque quibusdam sint ullam aperiam, harum rerum rem, molestias officiis.
+          </div>
+
+          <p id="destination-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Select a destination
+          </p>          
+  
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="destination-1" name="destination" type="radio" value="The Moon">
+              <label class="govuk-label govuk-radios__label" for="destination-1">
+                The Moon
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="destination-2" name="destination" type="radio" value="Mars">
+              <label class="govuk-label govuk-radios__label" for="destination-2">
+                Mars
+              </label>
+            </div>
+  
+          </div>
+        </fieldset>
+      </div>
+  
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+ 
+
+{% endblock %}

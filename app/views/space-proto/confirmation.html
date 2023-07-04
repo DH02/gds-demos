@@ -1,0 +1,47 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Registration complete" %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            Registration complete
+          </h1>
+          <div class="govuk-panel__body">
+            Your reference number<br><strong>MARSMOON001</strong>
+          </div>
+        </div>
+
+        <p class="govuk-body">
+          We have received your registration for our space travel service.
+        </p>
+
+        <h2 class="govuk-heading-m">
+          What happens next
+        </h2>
+
+        <p class="govuk-body">
+          We will contact you within 14 days, either to confirm your registration, or to ask for more information.
+        </p>
+
+        <div class="govuk-inset-text">
+          This demonstration prototype is complete. Use the '<span class="govuk-!-font-weight-bold">Clear data</span>' link in the page footer to start again.
+        </div>
+
+        <p class="govuk-body">
+          <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
+        </p>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+
+{% endblock %}

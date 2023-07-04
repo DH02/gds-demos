@@ -1,0 +1,72 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="What is your name" %}
+
+{% block beforeContent %}
+    {{ govukBackLink({
+        text: "Back",
+        href: "select-a-destination"
+    }) }}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+    <form id="myForm" action="/space-proto/what-is-your-address" method="post" novalidate>
+
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="full-name">
+            What is your name?
+          </label>
+        </h1>
+        
+        <div id="full-name-hint" class="govuk-hint">
+          Enter your full name.
+        </div>
+
+        <input class="govuk-input" id="full-name" name="full-name" type="text" spellcheck="false" autocomplete="name" value="{{ data['full-name'] }}" aria-describedby="full-name-hint">
+      </div>
+  
+      <button id="myBtn" class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+      <input type="hidden" id="from-check" name="from-check" value="false">
+
+    </form>
+
+  </div>
+</div>
+
+{% block pageScripts %}
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const pg = urlParams.get('from'); 
+
+    if (pg == 'check') {
+      
+      document.getElementById("from-check").value = 'true';  
+          
+    }   
+
+    document.getElementById("myBtn").addEventListener('click', function() {
+
+      if ((pg == 'check') && (document.getElementById("full-name").value != '')){
+      
+        document.getElementById("myForm").action = "/space-proto/check-your-answers"; 
+
+      } 
+
+    }, false);      
+  
+  });
+</script>
+{% endblock %}
+
+{% endblock %}

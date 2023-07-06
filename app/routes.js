@@ -41,25 +41,27 @@ router.post('/space-proto/what-is-your-name-error', function(request, response) 
 })
 // ********************************************** what is your address pg
 router.post('/space-proto/check-your-answers', function(request, response) {
-  const addressline1 = request.session.data['address-line-1']
-  const addresstown = request.session.data['address-town']
-  const addresspostcode = request.session.data['address-postcode']
+    const addressline1 = request.session.data['address-line-1']
+    const addresstown = request.session.data['address-town']
+    const addresspostcode = request.session.data['address-postcode']
 
-  if ((addressline1 == '') && (addresstown != '') && (addresspostcode != '')){  
-      response.redirect("/space-proto/what-is-your-address-error-1")
-  } else if ((addressline1 == '') && (addresstown == '') && (addresspostcode != '')){ 
-      response.redirect("/space-proto/what-is-your-address-error-2") 
-  } else if ((addressline1 == '') && (addresstown == '') && (addresspostcode == '')){  
-      response.redirect("/space-proto/what-is-your-address-error-3") 
-  } else if ((addressline1 != '') && (addresstown == '') && (addresspostcode == '')){  
-      response.redirect("/space-proto/what-is-your-address-error-4")   
-  } else if ((addressline1 != '') && (addresstown != '') && (addresspostcode == '')){  
-      response.redirect("/space-proto/what-is-your-address-error-5")  
-  } else if ((addressline1 != '') && (addresstown == '') && (addresspostcode != '')){  
-    response.redirect("/space-proto/what-is-your-address-error-6")
-  } else {
-      response.redirect("/space-proto/check-your-answers")
-  }
+    if ((addressline1 == '') && (addresstown != '') && (addresspostcode != '')){  
+        response.redirect("/space-proto/what-is-your-address-error-1")
+    } else if ((addressline1 == '') && (addresstown == '') && (addresspostcode != '')){ 
+        response.redirect("/space-proto/what-is-your-address-error-2") 
+    } else if ((addressline1 == '') && (addresstown == '') && (addresspostcode == '')){  
+        response.redirect("/space-proto/what-is-your-address-error-3") 
+    } else if ((addressline1 != '') && (addresstown == '') && (addresspostcode == '')){  
+        response.redirect("/space-proto/what-is-your-address-error-4")   
+    } else if ((addressline1 != '') && (addresstown != '') && (addresspostcode == '')){  
+        response.redirect("/space-proto/what-is-your-address-error-5")  
+    } else if ((addressline1 != '') && (addresstown == '') && (addresspostcode != '')){  
+        response.redirect("/space-proto/what-is-your-address-error-6")
+    } else if ((addressline1 == '') && (addresstown != '') && (addresspostcode == '')){  
+        response.redirect("/space-proto/what-is-your-address-error-7")    
+    } else {
+        response.redirect("/space-proto/check-your-answers")
+    }
 })
 
 
